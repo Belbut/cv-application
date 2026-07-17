@@ -1,7 +1,12 @@
 import { useState } from "react"
 
-function Info({ title, content, contentCallBack }) {
-  const [isEdit, setIsEdit] = useState(false);
+function Info({ info, setInfo, contentType }) {
+  const title = contentType.charAt(0).toUpperCase() + contentType.slice(1)
+  const content = info[contentType]
+  const contentCallBack = (value) => setInfo(prev => ({ ...prev, [contentType]: value }))
+
+
+  const [isEdit, setIsEdit] = useState(true);
 
   const button = () => {
     if (isEdit) {
@@ -26,26 +31,26 @@ function Info({ title, content, contentCallBack }) {
 
   return (
     <div>
-      {/* // <label for="content">{title}</label> */}
-      <span> {title}</span>
+      <span> {title}: </span>
       {button()}
     </div>
   )
 }
 
+
 function PersonalInfo({ }) {
   const [info, setInfo] = useState({ name: "John dos Passos", email: "jotndospassos@gmail.com", phone: "###" })
 
   return (
-    <>
-      <h2>{info.name}</h2>
-      <section className="contact-information">
-        <Info title="Name:" content={info.name} contentCallBack={(content) => setInfo({ ...info, name: content })} />
-        <Info title="Email:" content={info.email} contentCallBack={(content) => setInfo({ ...info, email: content })} />
-        <Info title="Phone:" content={info.phone} contentCallBack={(content) => setInfo({ ...info, phone: content })} />
-      </section>
+    <section>
+      <h2>Contact Information:</h2>
+      <div className="contact-information">
+        <Info info={info} setInfo={setInfo} contentType="name" />
+        <Info info={info} setInfo={setInfo} contentType="email" />
+        <Info info={info} setInfo={setInfo} contentType="phone" />
+      </div>
 
-    </>
+    </section>
   )
 }
 
