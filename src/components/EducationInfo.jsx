@@ -7,8 +7,8 @@ function EducationInfo() {
   return (
     <>
       <h2>Education</h2>
-      <div class="education-information">
-        <div class="course">
+      <div className="education-information">
+        <div className="course">
           <Info info={info} setInfo={setInfo} contentType="school" />
           <Info info={info} setInfo={setInfo} contentType="course" />
           <Info info={info} setInfo={setInfo} contentType="startDate" />
