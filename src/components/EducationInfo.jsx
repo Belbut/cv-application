@@ -1,6 +1,4 @@
-import Info from "./Info.jsx"
 import { useState } from "react"
-
 import ElementInfo from "./MultiEntryInfo.jsx"
 
 function EducationInfo() {
