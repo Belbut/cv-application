@@ -2,6 +2,8 @@ import Info from "./Info";
 
 
 function ElementInfo(type, info, setInfo, initialEntry) {
+  console.log(info)
+  console.log(info())
   const newEntry = () => { return { ...initialEntry, id: crypto.randomUUID() } }
 
   const findRecord = (id) => {

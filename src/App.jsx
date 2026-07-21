@@ -5,12 +5,38 @@ import PracticalInfo from "./components/PracticalInfo.jsx"
 
 function App() {
 
+  const [info, setInfo] = useState({
+    "personal": {},
+    "education": [
+      { id: crypto.randomUUID(), school: "Hogwards", course: "magic", startDate: "17/07/2020", endDate: "17/07/2026" },
+      { id: crypto.randomUUID(), school: "egnortr", course: "magic", startDate: "17/07/2020", endDate: "17/07/2026" }
+    ],
+    "work": [{}]
+  })
+
+  const individualSetInfo = (type) => {
+    return (fn) => setInfo(prev => ({ ...prev, [type]: fn }))
+  }
+
+  console.log(info["education"])
+
   return (
     <>
       <h1>Cv</h1>
-      <PersonalInfo />
-      <EducationInfo />
-      <PracticalInfo />
+      <PersonalInfo
+        info={info["personal"]}
+        setInfo={individualSetInfo("personal")}
+      />
+
+      <EducationInfo
+        info={info["education"]}
+        setInfo={individualSetInfo("education")}
+      />
+
+      <PracticalInfo
+        info={info["work"]}
+        setInfo={individualSetInfo("work")}
+      />
     </>
   )
 }

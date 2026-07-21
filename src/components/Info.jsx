@@ -3,7 +3,9 @@ import { useState } from "react"
 function Info({ info, setInfo, contentType }) {
   const title = contentType.charAt(0).toUpperCase() + contentType.slice(1)
   const content = info[contentType]
-  const contentCallBack = (value) => setInfo(prev => ({ ...prev, [contentType]: value }))
+  const contentCallBack = (value) => {
+    setInfo(prev => ({ ...prev, [contentType]: value }))
+  }
 
 
   const [isEdit, setIsEdit] = useState(true);

@@ -1,8 +1,7 @@
-import { useState } from "react"
 import ElementInfo from "./MultiEntryInfo.jsx"
 
-function PracticalInfo() {
-  const [info, setInfo] = useState([{ company: "Hogwards", position: "magic", startDate: "17/07/2020", endDate: "17/07/2026" }])
+function PracticalInfo({ info, setInfo }) {
+  // const [info, setInfo] = useState([{ company: "Hogwards", position: "magic", startDate: "17/07/2020", endDate: "17/07/2026" }])
 
   const initialEntry = { company: "", position: "", startDate: "", endDate: "" }
 

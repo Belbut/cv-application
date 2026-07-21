@@ -1,8 +1,7 @@
-import { useState } from "react"
 import Info from "./Info.jsx"
 
-function PersonalInfo({ }) {
-  const [info, setInfo] = useState({ name: "John dos Passos", email: "jotndospassos@gmail.com", phone: "###" })
+function PersonalInfo({ info, setInfo }) {
+  // const [info, setInfo] = useState({ name: "John dos Passos", email: "jotndospassos@gmail.com", phone: "###" })
 
   return (
     <>
@@ -12,7 +11,6 @@ function PersonalInfo({ }) {
         <Info info={info} setInfo={setInfo} contentType="email" />
         <Info info={info} setInfo={setInfo} contentType="phone" />
       </div>
-
     </>
   )
 }
