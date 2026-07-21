@@ -8,7 +8,7 @@ function Info({ info, setInfo, contentType }) {
 
   const [isEdit, setIsEdit] = useState(true);
 
-  const button = () => {
+  const editButton = () => {
     if (isEdit) {
       return (
         <>
@@ -19,8 +19,8 @@ function Info({ info, setInfo, contentType }) {
     } else {
       return (
         <>
-          <input type="" name="" value={content} onChange={(e) => contentCallBack(e.target.value)} />
-          <button type=""
+          <input value={content} onChange={(e) => contentCallBack(e.target.value)} />
+          <button
             onClick={() => setIsEdit(true)}>
             submit
           </button>
@@ -32,7 +32,7 @@ function Info({ info, setInfo, contentType }) {
   return (
     <div>
       <span> {title}: </span>
-      {button()}
+      {editButton()}
     </div>
   )
 }
