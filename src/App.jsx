@@ -6,12 +6,12 @@ import PracticalInfo from "./components/PracticalInfo.jsx"
 function App() {
 
   const [info, setInfo] = useState({
-    "personal": {},
+    "personal": { name: "John dos Passos", email: "jotndospassos@gmail.com", phone: "###" },
     "education": [
       { id: crypto.randomUUID(), school: "Hogwards", course: "magic", startDate: "17/07/2020", endDate: "17/07/2026" },
       { id: crypto.randomUUID(), school: "egnortr", course: "magic", startDate: "17/07/2020", endDate: "17/07/2026" }
     ],
-    "work": [{}]
+    "work": []
   })
 
   const individualSetInfo = (type) => {
@@ -23,10 +23,10 @@ function App() {
   return (
     <>
       <h1>Cv</h1>
-      <PersonalInfo
-        info={info["personal"]}
-        setInfo={individualSetInfo("personal")}
-      />
+      {/* <PersonalInfo */}
+      {/*   info={info["personal"]} */}
+      {/*   setInfo={individualSetInfo("personal")} */}
+      {/* /> */}
 
       <EducationInfo
         info={info["education"]}

@@ -1,19 +1,17 @@
 import Info from "./Info";
 
 
-function ElementInfo(type, info, setInfo, initialEntry) {
-  console.log(info)
-  console.log(info())
+function ElementInfo({ type, info, setInfo, initialEntry }) {
   const newEntry = () => { return { ...initialEntry, id: crypto.randomUUID() } }
 
   const findRecord = (id) => {
-    return info().find((element) => element.id == id)
+    return info.find((element) => element.id == id)
   }
 
   const editRecord = (id) => {
     return (fn) => {
       setInfo(
-        info().map(element => {
+        info.map(element => {
           return element.id == id ? fn(element) : element
         })
       )
@@ -21,17 +19,16 @@ function ElementInfo(type, info, setInfo, initialEntry) {
   }
 
   const addRecord = () => {
-    setInfo([...info(), newEntry()])
+    setInfo([...info, newEntry()])
   }
 
   const removeRecord = (id) => {
-    setInfo(info().filter(entry => entry.id != id))
+    setInfo(info.filter(entry => entry.id != id))
   }
 
   const renderRecordList = () => {
-    console.log(info())
-    console.log(info()[0])
-    return info().map((r) => {
+    console.log(info)
+    return info.map((r) => {
       return (
         <Element key={r.id}
           content={findRecord(r.id)}

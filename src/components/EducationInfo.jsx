@@ -5,7 +5,7 @@ function EducationInfo({ info, setInfo }) {
   const initialEntry = { id: crypto.randomUUID(), school: "", course: "", startDate: "", endDate: "" }
 
   return (
-    ElementInfo("Education", () => info, setInfo, initialEntry)
+    <ElementInfo type={"Education"} info={info} setInfo={setInfo} initialEntry={initialEntry} key={"education"} />
   )
 }
 
