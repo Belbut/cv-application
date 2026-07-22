@@ -15,18 +15,21 @@ function App() {
   })
 
   const individualSetInfo = (type) => {
-    return (fn) => setInfo(prev => ({ ...prev, [type]: fn }))
+    return (fn) => setInfo(prev => {
+      console.log(prev)
+      return ({ ...prev, [type]: fn })
+    })
   }
 
-  console.log(info["education"])
+  console.log(info["personal"])
 
   return (
     <>
       <h1>Cv</h1>
-      {/* <PersonalInfo */}
-      {/*   info={info["personal"]} */}
-      {/*   setInfo={individualSetInfo("personal")} */}
-      {/* /> */}
+      <PersonalInfo
+        info={info["personal"]}
+        setInfo={individualSetInfo("personal")}
+      />
 
       <EducationInfo
         info={info["education"]}

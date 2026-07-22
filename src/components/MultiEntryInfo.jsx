@@ -27,7 +27,6 @@ function ElementInfo({ type, info, setInfo, initialEntry }) {
   }
 
   const renderRecordList = () => {
-    console.log(info)
     return info.map((r) => {
       return (
         <Element key={r.id}

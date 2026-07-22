@@ -7,7 +7,6 @@ function Info({ info, setInfo, contentType }) {
     setInfo(prev => ({ ...prev, [contentType]: value }))
   }
 
-
   const [isEdit, setIsEdit] = useState(true);
 
   const editButton = () => {
